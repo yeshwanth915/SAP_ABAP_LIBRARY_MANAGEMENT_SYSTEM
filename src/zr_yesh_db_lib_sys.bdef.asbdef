@@ -1,0 +1,58 @@
+managed implementation in class ZBP_R_YESH_DB_LIB_SYS unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_YESH_DB_LIB_SYS alias ZrYeshDbLibSys
+persistent table ZYESH_DB_LIB_SYS
+extensible
+draft table ZYESH_DB_LIB_SS_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( mandatory : create )
+   BookID;
+
+  field ( readonly )
+   CreatedAt,
+   CreatedBy,
+   LastChangedAt,
+   LastChangedBy,
+
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   BookID;
+
+field ( readonly )
+   Status;
+
+  create;
+  update;
+  delete;
+
+determination setInitialStatus on modify { create; }
+
+  action ( features : instance ) issueBook result [1] $self;
+  action ( features : instance ) returnBook result [1] $self;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZYESH_DB_LIB_SYS corresponding extensible
+  {
+    BookID = BOOK_ID;
+    BookName = BOOK_NAME;
+    Author = AUTHOR;
+    Status = STATUS;
+    CreatedAt = CREATED_AT;
+    CreatedBy = CREATED_BY;
+    LastChangedAt = LAST_CHANGED_AT;
+    LastChangedBy = LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_YESH_DB_LIB_SYS'
+@MappingRole: true
+define role ZC_YESH_DB_LIB_SYS {
+  grant select on ZC_YESH_DB_LIB_SYS
+  where INHERITING CONDITIONS FROM ENTITY ZR_YESH_DB_LIB_SYS REPLACING { ROOT WITH _BaseEntity };
+}
