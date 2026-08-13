@@ -1,4 +1,4 @@
-# SAP_ABAP-02-_RAP_LIBRARY_MANAGEMENT_SYSTEM
+# SAP_ABAP_RAP_LIBRARY_MANAGEMENT_SYSTEM
 
 SAP RAP Library Management System is a book issue/return application built using SAP RAP, ABAP, and CDS views. It enables users to create, update, view, and manage a book catalog, with book availability tracking (Available / Issued) and structured data management through modern SAP technologies (Managed RAP Business Object with Draft, CDS View Entities, Behavior Definitions, and an OData V4 UI service).
 
